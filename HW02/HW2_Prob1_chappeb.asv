@@ -1,0 +1,55 @@
+% Activity HW 2 Prob 1: An MATLAB Activity.
+% File: HW2_Prob1_chappeb.m
+% Date: 31 January 2021
+% By: Ben Chappell
+% chappeb
+% Section: 5
+% Team: 70
+% 
+% ELECTRONIC SIGNATURE
+% Ben Chappell
+% 
+% The electronic signature above indicates that the program
+% submitted for evaluation is my individual work. I have
+% a general understanding of all aspects of its development
+% and execution.
+% 
+% Calculates the maximum downward deflection of a rectangular plate
+% carying a uniform load over the entire surface
+
+% ---------------------------------------------------
+%   Inputs
+% ---------------------------------------------------
+inputError = False;
+
+a = float(input("Enter the length a [meters]: "));
+b = float(input("Enter the length b [meters]: "));
+K = float(input("Enter the parameter K [meters^3]: "));
+mMax = float(input("Enter M_max: "));
+nMax = float(input("Enter N_max: "));
+
+if (a <= 0)
+    fprintf("Input value for a must be strictly greater than 0");
+    inputError = True;
+end
+
+if (b <= 0)
+    fprintf("Input value for b must be strictly greater than 0");
+    inputError = True;
+end
+
+if (K <= 0)
+    fprintf("Input value for K must be strictly greater than 0");
+    inputError = True;
+end
+% ---------------------------------------------------
+%   Computations
+% ---------------------------------------------------
+if (!inputError)
+    
+end
+
+
+% ---------------------------------------------------
+%   Outputs
+% ---------------------------------------------------
