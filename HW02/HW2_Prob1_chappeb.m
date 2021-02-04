@@ -46,12 +46,22 @@ end
 %   Computations
 % ---------------------------------------------------
 if (~inputError)
-   output = HW2_modeMN_chappeb(a, b, mMax, nMax); 
+    sum = 0;
+    
+    for i = 1:mMax
+        for j = 1:nMax
+            sum = sum + HW2_modeMN_chappeb(a, b, i, j);
+            
+        end
+    end
+    
+    maxDeflect = sum;
+    
+    maxDeflect = maxDeflect * ((16 * K) / pi^6);
+
+    % ---------------------------------------------------
+    %   Outputs
+    % ---------------------------------------------------
+    fprintf("\nThe maximum deflection of the plate is %.4f meters\n", maxDeflect);
 end
 
-output = output * ((16 * K) / pi^6);
-
-% ---------------------------------------------------
-%   Outputs
-% ---------------------------------------------------
-fprintf("\nThe maximum deflection of the plate is %.4f meters\n", output);
