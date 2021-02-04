@@ -17,21 +17,13 @@
 % Calculates the maximum downward deflection of a rectangular plate
 % carying a uniform load over the entire surface
 
-function [maxDeflect] = HW2_modeMN_chappeb(a, b, m, n)
+function [sum] = HW2_modeMN_chappeb(a, b, m, n)
 % Calculates the maximum downward deflection of a rectangular plate carrying
 % a uniform load over its entire surface, given the side lengths and both
 % mode numbers
-    sum = 0;
     
-    for i = 1:m
-        for j = 1:n
-            firstHalf = sin((i * pi) / 2) * sin((j * pi) / 2) / (i * j);
-            secondHalf = 1 / ((((i*i) / (a*a)) + ((j*j) / (b*b)))^2);
-            sum = sum + (firstHalf * secondHalf);
-            
-        end
-    end
-    
-    maxDeflect = sum;
+    firstHalf = sin((m * pi) / 2) * sin((n * pi) / 2) / (m * n);
+    secondHalf = 1 / ((((m*m) / (a*a)) + ((n*n) / (b*b)))^2);
+    sum = (firstHalf * secondHalf);
 end
 
