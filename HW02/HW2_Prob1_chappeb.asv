@@ -20,51 +20,36 @@
 % ---------------------------------------------------
 %   Inputs
 % ---------------------------------------------------
-inputError = false;
+inputError = False;
 
-a = double(input("Enter the length a [meters]: "));
-b = double(input("Enter the length b [meters]: "));
-K = double(input("Enter the parameter K [meters^3]: "));
-mMax = double(input("Enter M_max: "));
-nMax = double(input("Enter N_max: "));
+a = float(input("Enter the length a [meters]: "));
+b = float(input("Enter the length b [meters]: "));
+K = float(input("Enter the parameter K [meters^3]: "));
+mMax = float(input("Enter M_max: "));
+nMax = float(input("Enter N_max: "));
 
 if (a <= 0)
     fprintf("Input value for a must be strictly greater than 0");
-    inputError = true;
+    inputError = True;
 end
 
 if (b <= 0)
     fprintf("Input value for b must be strictly greater than 0");
-    inputError = true;
+    inputError = True;
 end
 
 if (K <= 0)
     fprintf("Input value for K must be strictly greater than 0");
-    inputError = true;
+    inputError = True;
 end
 % ---------------------------------------------------
 %   Computations
 % ---------------------------------------------------
-if (~inputError)
-    sum = 0;
+if (!inputError)
     
-    for i = 1:m
-        for j = 1:n
-            firstHalf = sin((i * pi) / 2) * sin((j * pi) / 2) / (i * j);
-            secondHalf = 1 / ((((i*i) / (a*a)) + ((j*j) / (b*b)))^2);
-            sum = sum + (firstHalf * secondHalf);
-            
-        end
-    end
-    
-    maxDeflect = sum;
-    
-    output = HW2_modeMN_chappeb(a, b, mMax, nMax); 
 end
 
-maxDeflect = output * ((16 * K) / pi^6);
 
 % ---------------------------------------------------
 %   Outputs
 % ---------------------------------------------------
-fprintf("\nThe maximum deflection of the plate is %.4f meters\n", output);
