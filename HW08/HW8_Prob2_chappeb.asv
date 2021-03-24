@@ -49,12 +49,12 @@ ylines = linspace(-3, 3, 21);
 [Xlines, Ylines] = meshgrid(xlines, ylines);
 
 % Draw the charge locations
-hold on;
-xLocs = [0,-d];
-yLocs = [0, 0];
-scatter(xLocs, yLocs, 'filled', 'MarkerEdgeColor', 'blue', 'MarkerFaceColor', 'blue');
-scatter(0, d, 'filled', 'MarkerEdgeColor', 'red', 'MarkerFaceColor', 'red');
-
+charge1Loc = [-.05, -.05, .1, .1];
+c1 = rectangle('Position', charge1Loc, 'Curvature', [1,1]);
+charge2Loc = [-0.05 - d, -0.05, .1, .1];
+c2 = rectangle('Position', charge2Loc, 'Curvature', [1,1], 'EdgeColor', 'b');
+charge3Loc = [-0.05, d - 0.05, .1, .1];
+c3 =rectangle('Position', charge3Loc, 'Curvature', [1,1], 'EdgeColor', 'r');
 
 % Map the vector flow lines
 streamline(X, Y, Xcomp, Ycomp, Xlines, Ylines);
@@ -62,9 +62,8 @@ streamline(X, Y, Xcomp, Ycomp, Xlines, Ylines);
 % Set the title n stuff
 title("Equipotential Lines and Vector Field Flow for Static Charges");
 
-legend("Equipotential Lines", "Positive Charge Locations", "Negative Charge Location", "Vector Field Flow");
-%legend(c1, "Charge 1 Location (+)",c2, "Charge 2 Location (+)", c3, "Charge 3 Location (-)");
-%legend;
+legend("Equipotential Lines", "Charge 1 Location (+)", "Charge 2 Location (+)", "Charge 3 Location (+)", "Vector Field Flow");
+legend(c1,c2,c3, "Charge 3 Location (+)"});
 xlabel("X Axis Location (m)");
 ylabel("Y Axis Location (m)");
 
